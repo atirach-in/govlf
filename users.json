@@ -1,0 +1,27 @@
+[
+  {
+    "username": "admin",
+    "password": "$2b$12$4I6GFeuhzFhLp1uRgTbYXuYtcmuJ9FUlnX.JPyUM7Udz02CEjnqZ.", 
+    "plainText" : "admin123"
+  },
+  {
+    "username": "user1",
+    "password": "a722c63db8ec8625af6cf71cb8c2d939", 
+    "plainText" : "pass1"
+  },
+  {
+    "username": "user2",
+    "password": "c1572d05424d0ecb2a65ec6a82aeacbf", 
+    "plainText" : "pass2"
+  },
+  {
+    "username": "user3",
+    "password": "3afc79b597f88a72528e864cf81856d2", 
+    "plainText" : "pass3"
+  },
+  {
+    "username": "user4",
+    "password": "fc2921d9057ac44e549efaf0048b2512", 
+    "plainText" : "pass4"
+  }
+]

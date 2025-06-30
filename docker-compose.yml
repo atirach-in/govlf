@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16
+    container_name: my-postgres-db
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d mydatabase"]
+      interval: 10s       # ตรวจสอบทุก 10 วินาที (จากเดิม 5s)
+      timeout: 5s
+      retries: 10         # ลองใหม่สูงสุด 10 ครั้ง (จากเดิม 5 ครั้ง)
+      start_period: 30s   # <--- เพิ่มส่วนนี้! รอ 30 วินาทีก่อนเริ่มตรวจสอบ health check
+volumes:
+  postgres_data:
