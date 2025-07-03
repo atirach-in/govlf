@@ -1,12 +1,13 @@
+import os
 from fastapi import FastAPI
-from routers import file, login
-from middleware.verify_token import SimpleMiddleware  
+from routers import file
+from controllers.corn import start_scheduler
 
 app = FastAPI()
 
-# เพิ่ม Middleware เข้าแอป
-app.add_middleware(SimpleMiddleware)
+@app.on_event("startup")
+def startup_event():
+    start_scheduler()
 
 # include routers
 app.include_router(file.router, prefix="/file")
-app.include_router(login.router, prefix="/login")
